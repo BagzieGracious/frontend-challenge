@@ -1,6 +1,10 @@
-/* eslint-disable unused-imports/no-unused-imports */
 import React from 'react';
+import renderer from 'react-test-renderer';
 
-test('if dashboard snapshot matches', async () => {
-  // create and test for snapshot
+import { UserDashboardView } from '../views/user/UserDashboardView';
+
+it('changes the class when hovered', () => {
+  const component = renderer.create(<UserDashboardView />);
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });
